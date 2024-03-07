@@ -13,6 +13,7 @@ class BaseModel(cmd.Cmd):
     defines all common attributes/methods for other classes
     """
     def __init__(self, *args, **kwargs):
+        """Class Constructor"""
         self.id = str(uuid4())
         self.created_at = dt.datetime.now()
         self.updated_at = dt.datetime.now()

@@ -15,7 +15,7 @@ class BaseModel(cmd.Cmd):
     def __init__(self):
         self.id = str(uuid4())
         self.created_at = dt.datetime.now()
-        self.updated_at = self.created_at
+        self.updated_at = dt.datetime.now()
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"

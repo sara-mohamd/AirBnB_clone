@@ -12,7 +12,7 @@ class BaseModel(cmd.Cmd):
     """
     defines all common attributes/methods for other classes
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self.id = str(uuid4())
         self.created_at = dt.datetime.now()
         self.updated_at = dt.datetime.now()

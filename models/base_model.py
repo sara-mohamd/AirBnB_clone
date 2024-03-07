@@ -28,7 +28,7 @@ class BaseModel(cmd.Cmd):
         self.updated_at = dt.datetime.now()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values """
+        """returns a dictionary containing all keys/values"""
         dictionary = {}
         for key, value in self.__dict__.items():
             if key == 'created_at' or key == 'updated_at':

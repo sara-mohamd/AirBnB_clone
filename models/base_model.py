@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""BaseModel"""
+"""
+    this module provides us with all comman
+    attrs and methods
+"""
 import cmd
 from uuid import uuid4
 import datetime as dt

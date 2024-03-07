@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-    this module provides us with all comman
-    attrs and methods
+this module provides us with all comman
+attrs and methods
 """
 import cmd
 from uuid import uuid4
@@ -13,13 +13,11 @@ class BaseModel(cmd.Cmd):
     defines all common attributes/methods for other classes
     """
     def __init__(self):
-        """ Base Constructor """
         self.id = str(uuid4())
         self.created_at = dt.datetime.now()
         self.updated_at = self.created_at
 
     def __str__(self):
-        """return object info"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):

@@ -23,7 +23,7 @@ class BaseModel(cmd.Cmd):
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key == 'created_at' or key == 'updated_at':
-                        self.key = dt.datetime(value)
+                        self.key = dt.datetime.fromisoformat(value)
                     else:
                         self.key = value
 

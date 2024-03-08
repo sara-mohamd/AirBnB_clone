@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 this module provides us with all comman
-attrs and methods
+atts and methods in project classes
 """
 import cmd
 from uuid import uuid4
@@ -14,9 +14,18 @@ class BaseModel(cmd.Cmd):
     """
     def __init__(self, *args, **kwargs):
         """Class Constructor"""
-        self.id = str(uuid4())
-        self.created_at = dt.datetime.now()
-        self.updated_at = dt.datetime.now()
+        if not kwargs:
+            self.id = str(uuid4())
+            self.created_at = dt.datetime.now()
+            self.updated_at = dt.datetime.now()
+        else:
+
+            for key, value in kwargs.items():
+                if key != '__class__':
+                    if key == 'created_at' or key == 'updated_at':
+                        self.key = dt.datetime(value)
+                    else:
+                        self.key = value
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"

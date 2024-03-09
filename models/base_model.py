@@ -23,9 +23,9 @@ class BaseModel(cmd.Cmd):
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key == 'created_at' or key == 'updated_at':
-                        self.key = dt.datetime.fromisoformat(value)
+                        setattr(self, key, dt.datetime.fromisoformat(value))
                     else:
-                        self.key = value
+                        setattr(self, key, value)
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"

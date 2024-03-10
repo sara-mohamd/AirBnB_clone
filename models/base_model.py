@@ -6,8 +6,7 @@ atts and methods in project classes
 import cmd
 from uuid import uuid4
 import datetime as dt
-from __init__ import storage
-
+import models
 
 class BaseModel(cmd.Cmd):
     """
@@ -19,6 +18,7 @@ class BaseModel(cmd.Cmd):
             self.id = str(uuid4())
             self.created_at = dt.datetime.now()
             self.updated_at = dt.datetime.now()
+            models.storage.new(self)
         else:
 
             for key, value in kwargs.items():
@@ -37,6 +37,7 @@ class BaseModel(cmd.Cmd):
         updated_at with the current datetime
         """
         self.updated_at = dt.datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values"""

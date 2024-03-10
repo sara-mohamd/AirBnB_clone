@@ -6,6 +6,7 @@ atts and methods in project classes
 import cmd
 from uuid import uuid4
 import datetime as dt
+from __init__ import storage
 
 
 class BaseModel(cmd.Cmd):

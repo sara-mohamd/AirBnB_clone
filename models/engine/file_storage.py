@@ -8,7 +8,7 @@ import json
 
 class FileStorage:
     """"""
-    __file_path = 'file.json' 
+    __file_path = 'file.json'
     __objects = {}
 
     @property
@@ -29,7 +29,6 @@ class FileStorage:
 
         with open(self.__file_path, 'w', encoding='utf-8') as file:
             json.dump(self.__objects, file)
-        
 
     def reload(self):
         """
@@ -39,5 +38,5 @@ class FileStorage:
         try:
             with open(self.__file_path, "r") as file:
                 self.__objects = json.load(file)
-        except:
+        except Exception as e:
             pass

@@ -30,6 +30,7 @@ class BaseModel(cmd.Cmd):
                         setattr(self, key, value)
 
     def __str__(self):
+        """Return string representation"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
@@ -41,7 +42,10 @@ class BaseModel(cmd.Cmd):
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/values"""
+        """
+        - method that generate a dictionary representation of an instance
+        - use it to Create an instance
+        """
         dictionary = {}
         for key, value in self.__dict__.items():
             if key == 'created_at' or key == 'updated_at':
